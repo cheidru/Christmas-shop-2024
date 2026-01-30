@@ -1,4 +1,5 @@
 const slider = document.getElementById('slider-row');
+const sliderCaptionText = document.getElementById('slider-caption-text');
 const sliderLeftBTN = document.getElementById('left-btn');
 const sliderRightBTN = document.getElementById('right-btn');
 const days = document.getElementById('cta-timer-days');
@@ -9,6 +10,7 @@ const seconds = document.getElementById('cta-timer-seconds');
 const currentDate = new Date();
 const currentUTCDate = new Date(currentDate.toISOString());
 const newYearTimeUTCStamp = new Date(Date.UTC(currentUTCDate.getFullYear() +1, 0, 1));
+const nextYear = new Date().getFullYear();
 
 const cardContainer = document.getElementById('best-gifts-container');
 
@@ -24,6 +26,7 @@ let giftsQTY = 36;
 
 checkWinWidth();
 showFourRandomGifts();
+showSliderCaptionText();
 setInterval(ctaTimer, 1000);
 
 window.addEventListener('resize', checkWinWidth);
@@ -108,6 +111,10 @@ function ctaTimer() {
   hours.innerText = hoursLeft;
   minutes.innerText = minutesLeft;
   seconds.innerText = secondsLeft;
+}
+
+function showSliderCaptionText() {
+  sliderCaptionText.innerText = `in the new ${new Date().getFullYear() + 1}`;
 }
 
 function showFourRandomGifts() {
